@@ -86,12 +86,11 @@ class Dashboard extends Component {
 
     if (airports.length > 0) {
       const typeCount = {};
-      airports.forEach((airport) => {
-        console.log('before', typeCount, airport.type, typeCount[airport.type]);
+      airports.forEach(airport => (
         typeCount[airport.type] = typeCount[airport.type] ? (
           (typeCount[airport.type] + 1)
-        ) : 1;
-      });
+        ) : 1
+      ));
 
       Object.keys(typeCount).forEach((typeKey) => {
         airportTypeSeries.push({
