@@ -5,6 +5,28 @@ import {
   watchAirports, unwatchAirports, watchAirport, unwatchAirport
 } from '../api/airports';
 
+const headers = {
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+};
+
+function processStatus(response) {
+  if (response.ok) {
+    return Promise.resolve(response);
+  }
+  return Promise.reject(response.statusText || `Error ${response.status}`);
+}
+
+export function addAirport(airport) {
+  return () => {
+    const data = JSON.stringify(airport);
+    const options = { method: 'POST', headers, body: data };
+    return fetch('/api/airport', options)
+      .then(processStatus)
+      .then(response => response.json());
+  };
+}
+
 export function loadAirports() {
   return dispatch => (
     watchAirports()

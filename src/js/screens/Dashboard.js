@@ -71,7 +71,7 @@ class Dashboard extends Component {
         </Box>
       );
     }
-    
+
     if (activities.length > 0) {
       const listItems = (activities || []).map((activity, index) => (
         <ListItem key={`activity_${index}`} pad={{

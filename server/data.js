@@ -69,6 +69,12 @@ export function getSession(token) {
   return _sessions[token];
 }
 
+export function addAirport(airport) {
+  airport.id = Date.now().toString();
+  airports.push(airport);
+  _notifiers.airport.forEach(notifier => notifier(airport));
+}
+
 export function addNotifier(type, cb) {
   _notifiers[type].push(cb);
 }
@@ -76,9 +82,9 @@ export function addNotifier(type, cb) {
 export function getActivities(filters) {
   if (filters && Object.keys(filters).length > 0) {
     return Promise.resolve({
-      activities: activities.filter(airport =>
+      activities: activities.filter(activity =>
         Object.keys(filters).some(
-          filter => activities[filter] === activities[filter]
+          filter => activity[filter] === filters[filter]
         )
       )
     });

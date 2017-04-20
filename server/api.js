@@ -1,5 +1,7 @@
 import express from 'express';
-import { addSession, getActivities, getAirports, getAirport } from './data';
+import {
+  addAirport, addSession, getActivities, getAirports, getAirport
+} from './data';
 
 const router = express.Router();
 
@@ -16,6 +18,11 @@ router.post('/sessions', (req, res) => {
     addSession(token, session);
     res.json(session);
   }
+});
+
+router.post('/airport', (req, res) => {
+  addAirport(req.body);
+  res.status(200).json({});
 });
 
 router.get('/airport', (req, res) => {

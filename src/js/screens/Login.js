@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+import Box from 'grommet/components/Box';
 import Split from 'grommet/components/Split';
 import Sidebar from 'grommet/components/Sidebar';
 import LoginForm from 'grommet/components/LoginForm';
-import Article from 'grommet/components/Article';
 import Section from 'grommet/components/Section';
 import Heading from 'grommet/components/Heading';
 import Paragraph from 'grommet/components/Paragraph';
@@ -45,7 +45,7 @@ class Login extends Component {
     return (
       <Split flex='left' separator={true}>
 
-        <Article>
+        <Box flex={true}>
           <Section full={true} colorIndex='brand' texture='url(img/splash.png)'
             pad='large' justify='center' align='center'>
             <Heading tag='h1' strong={true}>CSU</Heading>
@@ -53,7 +53,7 @@ class Login extends Component {
               Development with Grommet is cool.
             </Paragraph>
           </Section>
-        </Article>
+        </Box>
 
         <Sidebar justify='between' align='center' pad='none' size='large'>
           <span />

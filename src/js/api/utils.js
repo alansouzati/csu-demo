@@ -25,17 +25,16 @@ export function updateHeaders(newHeaders) {
   });
 }
 
-let webSocketUrl;
-if (window && window.location) {
-  let protocol = 'ws:';
-  if (window.location.protocol === 'https:') {
-    protocol = 'wss:';
-  }
-  const host = ((process.env.NODE_ENV === 'development') ?
-    'localhost:8102' : `${window.location.host}`);
-  webSocketUrl = `${protocol}//${host}`;
-}
+// let webSocketUrl;
+// if (window && window.location) {
+//   let protocol = 'ws:';
+//   if (window.location.protocol === 'https:') {
+//     protocol = 'wss:';
+//   }
+//   const host = 'localhost:8102';
+//   webSocketUrl = `${protocol}//${host}`;
+// }
 
-export const SOCKET_WATCHER = new RequestWatcher({ webSocketUrl });
+export const SOCKET_WATCHER = new RequestWatcher();
 
 export const REQUEST_POOL_WATCHER = new RequestWatcher();

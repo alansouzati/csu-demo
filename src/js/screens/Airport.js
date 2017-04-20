@@ -2,14 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import Anchor from 'grommet/components/Anchor';
-import Article from 'grommet/components/Article';
 import Box from 'grommet/components/Box';
 import Header from 'grommet/components/Header';
 import Heading from 'grommet/components/Heading';
 import Label from 'grommet/components/Label';
-import Meter from 'grommet/components/Meter';
 import Notification from 'grommet/components/Notification';
-import Value from 'grommet/components/Value';
 import Spinning from 'grommet/components/icons/Spinning';
 import LinkPrevious from 'grommet/components/icons/base/LinkPrevious';
 
@@ -82,7 +79,7 @@ class Airport extends Component {
     }
 
     return (
-      <Article primary={true} full={true}>
+      <Box primary={true} full={true}>
         <Header direction='row' size='large' colorIndex='light-2'
           align='center' responsive={false}
           pad={{ horizontal: 'small' }}>
@@ -96,7 +93,7 @@ class Airport extends Component {
         {errorNode}
 
         {airportNode}
-      </Article>
+      </Box>
     );
   }
 }
