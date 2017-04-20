@@ -3,14 +3,10 @@ import { connect } from 'react-redux';
 
 import Box from 'grommet/components/Box';
 import Header from 'grommet/components/Header';
-import Heading from 'grommet/components/Heading';
 import Label from 'grommet/components/Label';
-import Legend from 'grommet/components/Legend';
 import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
-import Meter from 'grommet/components/Meter';
 import Notification from 'grommet/components/Notification';
-import Paragraph from 'grommet/components/Paragraph';
 import Spinning from 'grommet/components/icons/Spinning';
 import Status from 'grommet/components/icons/Status';
 
@@ -52,7 +48,6 @@ class Dashboard extends Component {
 
   render() {
     const { activities, airports, error } = this.props;
-    const { activeTypeIndex } = this.state;
 
     let errorNode;
     let activitiesNode;
@@ -118,38 +113,6 @@ class Dashboard extends Component {
         </Header>
         {errorNode}
         <Box pad={{ horizontal: 'medium' }}>
-          <Label uppercase={true}>
-            Airports
-          </Label>
-          <Box direction='row' pad={{
-            vertical: 'small', horizontal: 'small', between: 'medium'
-          }}>
-            <Meter
-              max={airports.length}
-              size='medium'
-              type='circle'
-              series={airportTypeSeries}
-              stacked={true}
-              activeIndex={activeTypeIndex}
-              onActive={index => this.setState({ activeTypeIndex: index })}
-              label={
-                <Box align='center'>
-                  <Heading tag='h1' strong={true}>
-                    {activeTypeIndex >= 0 ? (
-                      airportTypeSeries[activeTypeIndex].value
-                    ) : airports.length}
-                  </Heading>
-                  <Paragraph margin='none' size='large'>
-                    {activeTypeIndex >= 0 ? (
-                      airportTypeSeries[activeTypeIndex].label
-                    ) : 'Total'}
-                  </Paragraph>
-                </Box>
-              }
-            />
-            <Legend series={legendSeries} activeIndex={activeTypeIndex}
-              onActive={index => this.setState({ activeTypeIndex: index })} />
-          </Box>
           <Label uppercase={true}>
             Activity
           </Label>
