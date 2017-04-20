@@ -93,7 +93,7 @@ class Dashboard extends Component {
       const typeCount = {};
       airports.forEach(airport => (
         typeCount[airport.type] = typeCount[airport.type] ? (
-          typeCount[airport.type]++
+          (typeCount[airport.type] + 1)
         ) : 1
       ));
 
